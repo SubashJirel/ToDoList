@@ -1,8 +1,6 @@
-//testing our webpack initial setup of index.js
-console.log('testing index.js webpack');
-//testing out DOM manipulation via webpack
-const contentDiv = document.querySelector('.content');
+import { createToDo } from './create-to-do.js';
+import { blankProjectLoad } from './blank-project-load.js';
+import { initialdomManip } from './initial-dom-manip.js';
 
-const h1 = document.createElement('h1');
-h1.textContent = ' hello from index.js';
-contentDiv.appendChild(h1);
+// Call blankProjectLoad on first land
+blankProjectLoad();
