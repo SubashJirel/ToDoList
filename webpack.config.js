@@ -1,11 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: path.resolve(__dirname, 'src/index.js'), // old // entry: './src/index.js'
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name][contenthash].js', // old // filename: 'main.js' // [contenthash] for caching
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   devtool: 'source-map',
   devServer: {
@@ -18,4 +22,11 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'To Do List',
+      filename: 'index.html',
+      template: 'src/template.html',
+    }),
+  ],
 };
