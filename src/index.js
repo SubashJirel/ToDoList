@@ -1,6 +1,19 @@
-import { createToDo } from './create-to-do.js';
+import createToDo from './create-to-do.js';
 import { blankProjectLoad } from './blank-project-load.js';
-import { initialdomManip } from './initial-dom-manip.js';
+import { initialDomManipulation } from './initial-dom-manipulation.js';
 
 // Call blankProjectLoad on first land
 blankProjectLoad();
+
+// displaing the contents
+initialDomManipulation();
+
+// using createToDo module
+const toDo = createToDo(
+  'workout',
+  ' do the daily exercise',
+  '2023/9/2',
+  'medium',
+  'unchecked'
+);
+console.log('this to do object is form the index.js file...', toDo);
