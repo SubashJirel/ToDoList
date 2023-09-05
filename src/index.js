@@ -1,7 +1,7 @@
 import createToDo from './create-to-do.js';
 import { blankProjectLoad } from './blank-project-load.js';
 import { initialDomManipulation } from './initial-dom-manipulation.js';
-
+import './styles.css';
 // Call blankProjectLoad on first land
 blankProjectLoad();
 

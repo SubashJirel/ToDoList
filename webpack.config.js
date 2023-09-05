@@ -9,10 +9,11 @@ module.exports = {
   output: {
     filename: '[name][contenthash].js', // old // filename: 'main.js' // [contenthash] for caching
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    clean: true, // so that old main4bc45.js gets deleted and only new one remains
   },
-  devtool: 'source-map',
+  devtool: 'source-map', // to get the file name and line number where error is in developer tool
   devServer: {
+    // to automatically run the server when changes are made
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
@@ -29,4 +30,12 @@ module.exports = {
       template: 'src/template.html',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
