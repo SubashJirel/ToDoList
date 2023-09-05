@@ -1,3 +1,6 @@
+:root {
+  --font-color: #fff1f2;
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -10,23 +13,39 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  color: var(--font-color);
 }
 header {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  background-color: #4c0519;
+  color: var(--font-color);
+  font-size: larger;
 }
 header > :first-child {
   font-size: 32px;
   font-weight: 900;
 }
-
-.left-panel,
-.right-panel {
-  border: 2px solid red;
+.content {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
-
+.left-panel {
+  padding-left: 10px;
+  background-color: #630a26;
+  /* background-color: #690808; */
+  color: var(--font-color);
+}
+.home > h2,
+.project > h2 {
+  margin-bottom: 0;
+}
+.right-panel {
+  background-color: #881337;
+}
 .title {
   display: flex;
   /* flex-direction: column; */
@@ -36,4 +55,17 @@ header > :first-child {
   margin: 10px 0 10px 0;
   padding: 5px;
   gap: 5px;
+}
+.project button {
+  border: 0;
+  background-color: #630a26;
+  color: var(--font-color);
+}
+
+footer {
+  text-align: center;
+  font-size: large;
+  padding: 10px;
+  background-color: #4c0519;
+  color: var(--font-color);
 }
