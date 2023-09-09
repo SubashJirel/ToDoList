@@ -19,7 +19,7 @@ const projects = (() => {
         ],
       },
       {
-        title: 'default workout project',
+        title: 'Workout',
         tasks: [
           {
             title: 'Do regular home workout',

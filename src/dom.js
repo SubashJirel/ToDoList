@@ -1,22 +1,25 @@
 import projects from './projects';
 
-const dom = () => {
+const dom = (() => {
   function showProjects() {
     // SAVE PROJECTS TO LOCAL STORAGE
     localStorage.setItem('projects', JSON.stringify(projects.projectsList));
+    const projectCollectionDiv = document.querySelector('.project-collection');
+
+    //add Project button in left panel
+    const addProject = document.querySelector('#add-project');
 
     for (let i = 0; i < projects.projectsList.length; i++) {
-      const projectCollectionDiv = document.querySelector(
-        '.project-collection'
-      );
       const projectLink = document.createElement('a');
       const projectIconAndTextDiv = document.createElement('div');
       const projectIcon = document.createElement('span');
       projectIcon.classList.add('material-symbols-outlined');
       projectIcon.innerText = 'lists';
       const projectText = document.createElement('p');
-      const projectIconsDiv = document.createElement('div');
-      const projectTrashIcon = document.createElement('i');
+      const projecTrashIconDiv = document.createElement('div');
+      const projectTrashIcon = document.createElement('span');
+      projectTrashIcon.classList.add('material-symbols-outlined');
+      projectTrashIcon.innerText = 'delete';
 
       // PROJECT ICON/TEXT AND DEFAULT ICONS DIVS
       projectIconAndTextDiv.classList.add(
@@ -25,27 +28,18 @@ const dom = () => {
         'select'
       );
       projectIconAndTextDiv.setAttribute('data-link-index', i);
-      projectIconsDiv.classList.add(
-        'project-default-icons-div',
+      projecTrashIconDiv.classList.add(
+        'project-trash-icons-div',
         'project',
         'select'
       );
-      projectIconsDiv.setAttribute('data-link-index', i);
+      projecTrashIconDiv.setAttribute('data-link-index', i);
 
       // PROJECT LINK
       projectLink.classList.add('link', 'project-link', 'project', 'select');
       projectLink.setAttribute('href', '#');
       projectLink.setAttribute('data-link-index', i);
 
-      // PROJECT ICON
-      projectIcon.classList.add(
-        'fal',
-        'fa-fw',
-        'project-icon',
-        'project',
-        'select',
-        'padding-right'
-      );
       projectIcon.setAttribute('data-link-index', i);
 
       // PROJECT TEXT
@@ -53,24 +47,21 @@ const dom = () => {
       projectText.textContent = projects.projectsList[i].title;
       projectText.setAttribute('data-link-index', i);
 
-      projectTrashIcon.classList.add(
-        'fal',
-        'fa-trash-alt',
-        'project',
-        'project-icon',
-        'delete-project',
-        'select',
-        'scale-element'
-      );
       projectTrashIcon.setAttribute('data-link-index', i);
 
       // APPENDS
-      projectIconsDiv.appendChild(projectTrashIcon);
       projectIconAndTextDiv.appendChild(projectIcon);
       projectIconAndTextDiv.appendChild(projectText);
+      projecTrashIconDiv.appendChild(projectTrashIcon);
+      // projectIconAndTextDiv.appendChild(projectTrashIcon);
       projectLink.appendChild(projectIconAndTextDiv);
-      projectLink.appendChild(projectIconsDiv);
-      projectCollectionDiv.appendChild(projectLink);
+      projectLink.appendChild(projecTrashIconDiv);
+      console.log('this is project link from dom', projectLink);
+      console.log(
+        'this is the div where link is going to be stored',
+        projectCollectionDiv
+      );
+      projectCollectionDiv.insertBefore(projectLink, addProject);
     }
     // manipulateModal('close');
   }
@@ -78,6 +69,6 @@ const dom = () => {
   return {
     showProjects,
   };
-};
+})();
 
 export default dom;

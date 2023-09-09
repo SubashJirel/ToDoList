@@ -32,34 +32,36 @@
             Next seven days
           </div>
         </div>
-        <div class="project">
+        <div class="project-collection">
           <h2>Project</h2>
-          <div data-project="0" class="title">
-            <span class="material-symbols-outlined"> lists </span>
-            Programming
-          </div>
+          <!-- <a href="#" class="link project-link project select">
+            <div data-project="0" class="title">
+              <span class="material-symbols-outlined"> lists </span>
+              <p>programming</p>
+              <span class="material-symbols-outlined trash-icon"> delete </span>
+            </div>
+          </a>
           <div data-project="1" class="title">
             <span class="material-symbols-outlined"> lists </span>
             Homework
-          </div>
-          <button id="addProject" class="title">
+          </div> -->
+          <button id="add-project" class="title">
             <span class="material-symbols-outlined"> add_circle </span>Add
             Project
           </button>
         </div>
       </div>
-      <div id="rightPanel" class="rightPanel">
-        <div class="title">All Tasks</div>
+      <div id="right-panel" class="right-panel">
+        <h1 class="title">All Tasks</h1>
         <div class="list-todo">
-          <ul></ul>
-          <!-- hidden pop up option -->
-          <div class="option hidden" id="listOption">
-            <!-- <button id="listEdit">Edit</button> -->
+          <!-- <ul></ul>
+       
+          <div class="option" id="list-option">
             <button id="listDelete">Delete</button>
-          </div>
+          </div> -->
 
           <!-- hidden pop up adding task form -->
-          <form id="listForm" class="hidden" autocomplete="off">
+          <form id="list-form" class="hidden" autocomplete="off">
             <div class="inputField">
               <label>Title:</label>
               <input type="text" id="listInput" placeholder="What to do?" />

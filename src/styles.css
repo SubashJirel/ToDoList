@@ -1,5 +1,16 @@
 :root {
   --font-color: #fff1f2;
+  --aqua: #00b3bb;
+  --light-aqua: #00e6aa;
+  --dark-aqua: #0e9aa1;
+  --grey: #e6e6e6;
+  --light-grey: #f7f7f7;
+  --dark-grey: #757575;
+  --white: #ffffff;
+  --green: #61b874;
+  --yellow: #e6db7b;
+  --red: #e67b7b;
+  --dark-red: #c46161;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -68,4 +79,62 @@ footer {
   padding: 10px;
   background-color: #4c0519;
   color: var(--font-color);
+}
+
+/* miscelaneous */
+.hidden {
+  top: 0;
+  left: 0;
+  pointer-events: none !important;
+  position: absolute !important;
+  max-height: 0 !important;
+
+  /* do nth but avoid opacity transition when position absolute */
+  transition: max-height 1s ease-out !important;
+  opacity: 0 !important;
+}
+
+form {
+  border: 2px solid red;
+}
+
+flex {
+  display: flex;
+}
+
+.unchecked {
+  border: 2px solid red;
+  border-radius: 50%;
+}
+/* left side */
+.link,
+.project-link {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+a[href] {
+  padding: 0;
+  margin: 0;
+}
+
+.project-icon-and-text-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+  color: var(--font-color);
+}
+.project-trash-icons-div {
+  margin-left: auto;
+  color: var(--font-color);
+}
+
+p {
+  margin: 0;
 }
