@@ -1,6 +1,8 @@
 import projects from './projects';
+import { format, parseISO, differenceInDays } from 'date-fns';
 
 const dom = (() => {
+  const tasksList = document.querySelector('.tasks-list');
   function showProjects() {
     // SAVE PROJECTS TO LOCAL STORAGE
     localStorage.setItem('projects', JSON.stringify(projects.projectsList));
@@ -66,8 +68,46 @@ const dom = (() => {
     // manipulateModal('close');
   }
 
+  function showTasks(menuTitle, projectIndexStart, projectIndexEnd) {
+    const todayDate = format(new Date(), 'yyyy-MM-dd');
+    console.log(
+      'the menuTitle, projectIndexStart, projectIndexEnd from showTasks is shown as:',
+      menuTitle,
+      projectIndexStart,
+      projectIndexEnd
+    );
+    console.log('todayDate in showtasks method in dom.js file', todayDate);
+
+    tasksList.textContent = '';
+  }
+
+  function getTasks(menuTitle, projectIndex) {
+    let projectIndexStart;
+    let projectIndexEnd;
+
+    // SAVE PROJECTS WITH TASKS TO LOCAL STORAGE
+    // console.log(
+    //   'This is from dom ko gettasks function, below is the result of JSON.stringify(projects.projectsList)',
+    //   JSON.stringify(projects.projectsList)
+    // );
+    localStorage.setItem('projects', JSON.stringify(projects.projectsList));
+
+    // IF CLICKED ON PROJECT LINK
+    if (menuTitle === 'project') {
+      projectIndexStart = projectIndex;
+      projectIndexEnd = projectIndex + 1;
+
+      // IF CLICKED ON MENU LINK
+    } else {
+      projectIndexStart = 0;
+      projectIndexEnd = projects.projectsList.length;
+    }
+    showTasks(menuTitle, projectIndexStart, projectIndexEnd);
+  }
+
   return {
     showProjects,
+    getTasks,
   };
 })();
 
