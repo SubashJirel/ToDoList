@@ -21,7 +21,10 @@ const dom = (() => {
       const projectText = document.createElement('p');
       const projecTrashIconDiv = document.createElement('div');
       const projectTrashIcon = document.createElement('span');
-      projectTrashIcon.classList.add('material-symbols-outlined');
+      projectTrashIcon.classList.add(
+        'material-symbols-outlined',
+        'delete-project'
+      );
       projectTrashIcon.innerText = 'delete';
 
       // PROJECT ICON/TEXT AND DEFAULT ICONS DIVS

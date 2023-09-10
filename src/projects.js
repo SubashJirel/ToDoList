@@ -58,7 +58,7 @@ const projects = (() => {
       projectsList.splice(index, 1);
     }
     //after you have deleted project from the projectList you have to render later
-    // dom.showProjects();
+    dom.showProjects();
   }
 
   return {
