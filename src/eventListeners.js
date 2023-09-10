@@ -1,3 +1,5 @@
+import dom from './dom';
+import projects from './projects';
 const form = document.querySelector('#project-form');
 const addProjectBtn = document.querySelector('#add-project');
 const projectSubmitBtn = document.querySelector('.project-submit-button');
@@ -14,6 +16,8 @@ function showAddProjectForm() {
 }
 function submitProject(e) {
   e.preventDefault();
+  const projectTitle = document.querySelector('#projectInput').value;
+  projects.addProject(projectTitle);
   addProjectBtn.classList.remove('hidden');
   form.classList.add('hidden');
 }

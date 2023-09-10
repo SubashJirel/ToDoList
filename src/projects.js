@@ -1,3 +1,4 @@
+import dom from './dom';
 const projects = (() => {
   let projectsList = [];
 
@@ -49,7 +50,7 @@ const projects = (() => {
     const project = new Project(title);
     projectsList.push(project);
     //after you have added project you have to render later
-    // dom.showProjects();
+    dom.showProjects();
   }
 
   function deleteProject(index) {

@@ -7,6 +7,7 @@ const dom = (() => {
     // SAVE PROJECTS TO LOCAL STORAGE
     localStorage.setItem('projects', JSON.stringify(projects.projectsList));
     const projectCollectionDiv = document.querySelector('.project-collection');
+    projectCollectionDiv.innerText = '';
 
     //add Project button in left panel
     const addProject = document.querySelector('#add-project');
@@ -58,12 +59,8 @@ const dom = (() => {
       // projectIconAndTextDiv.appendChild(projectTrashIcon);
       projectLink.appendChild(projectIconAndTextDiv);
       projectLink.appendChild(projecTrashIconDiv);
-      console.log('this is project link from dom', projectLink);
-      console.log(
-        'this is the div where link is going to be stored',
-        projectCollectionDiv
-      );
-      projectCollectionDiv.insertBefore(projectLink, addProject);
+
+      projectCollectionDiv.appendChild(projectLink);
     }
     // manipulateModal('close');
   }
