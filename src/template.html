@@ -34,17 +34,29 @@
         </div>
         <div class="project-collection">
           <h2>Project</h2>
-          <!-- <a href="#" class="link project-link project select">
-            <div data-project="0" class="title">
-              <span class="material-symbols-outlined"> lists </span>
-              <p>programming</p>
-              <span class="material-symbols-outlined trash-icon"> delete </span>
+          <form id="project-form" class="hidden" autocomplete="off">
+            <div class="input-field">
+              <input
+                type="text"
+                id="projectInput"
+                placeholder="Enter Project Name"
+                maxlength="24"
+                required
+              />
+              <div class="form-buttons">
+                <input
+                  type="submit"
+                  class="project-submit-button hover-element"
+                  value="Add"
+                />
+                <input
+                  type="button"
+                  class="cancel-button hover-element"
+                  value="Cancel"
+                />
+              </div>
             </div>
-          </a>
-          <div data-project="1" class="title">
-            <span class="material-symbols-outlined"> lists </span>
-            Homework
-          </div> -->
+          </form>
           <button id="add-project" class="title">
             <span class="material-symbols-outlined"> add_circle </span>Add
             Project

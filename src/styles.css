@@ -46,6 +46,49 @@ header > :first-child {
 .project > h2 {
   margin-bottom: 0;
 }
+/* #project-form {
+} */
+#project-form > .input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input[type='text'],
+textarea,
+input[type='date'] {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Alata';
+  font-size: 1rem;
+  background-color: white;
+  border: solid 2px #273746;
+  border-radius: 3px;
+  padding: 5px;
+  resize: none;
+}
+.form-buttons {
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+.project-submit-button {
+  /* //input[type='submit'] */
+  border: 1px solid #99dd99;
+  background-color: forestgreen;
+  flex-grow: 1;
+  padding: 5px;
+  color: var(--font-color);
+  font-weight: bold;
+}
+.cancel-button {
+  border: 1px solid #eeadad;
+  background-color: darkred;
+  flex-grow: 1;
+  padding: 5px;
+  color: var(--font-color);
+  font-weight: bold;
+}
 .right-panel {
   background-color: var(--right-background-color);
 }
@@ -97,15 +140,7 @@ footer {
 
 /* miscelaneous */
 .hidden {
-  top: 0;
-  left: 0;
-  pointer-events: none !important;
-  position: absolute !important;
-  max-height: 0 !important;
-
-  /* do nth but avoid opacity transition when position absolute */
-  transition: max-height 1s ease-out !important;
-  opacity: 0 !important;
+  display: none;
 }
 
 form {
