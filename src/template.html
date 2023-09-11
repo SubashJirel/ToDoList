@@ -17,19 +17,34 @@
     </header>
     <div class="content">
       <div class="left-panel">
-        <div class="home">
+        <div id="home">
           <h2>Home</h2>
-          <div class="title" id="all-tasks">
+          <div
+            class="home-title"
+            id="all-tasks"
+            data-home-title="All Tasks"
+            data-home-index="0"
+          >
             <span class="material-symbols-outlined"> task </span>
             All tasks
           </div>
-          <div class="title" id="today">
+          <div
+            class="home-title"
+            id="today"
+            data-home-title="Today"
+            data-home-index="1"
+          >
             <span class="material-symbols-outlined"> today </span>
             Today
           </div>
-          <div class="title" id="this-week">
+          <div
+            class="home-title"
+            id="this-week"
+            data-home-title="This Week"
+            data-home-index="2"
+          >
             <span class="material-symbols-outlined"> date_range </span>
-            Next seven days
+            This week
           </div>
         </div>
         <div class="project-main">
@@ -65,7 +80,7 @@
         </div>
       </div>
       <div id="right-panel" class="right-panel">
-        <h1 class="title">All Tasks</h1>
+        <h1 class="title" id="main-head-title">All Tasks</h1>
         <div class="tasks-list">
           <!-- <ul></ul>
        

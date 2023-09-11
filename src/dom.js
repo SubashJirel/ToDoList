@@ -3,6 +3,15 @@ import { format, parseISO, differenceInDays } from 'date-fns';
 
 const dom = (() => {
   const tasksList = document.querySelector('.tasks-list');
+  const h1HeadTitle = document.querySelector('#main-head-title');
+
+  function showMainTitle(index) {
+    const allHomeTitle = document.querySelectorAll('.home-title');
+    const selectedHomeTitle =
+      allHomeTitle[index].getAttribute('data-home-title');
+    h1HeadTitle.textContent = selectedHomeTitle;
+    document.title = `ToDo - ${h1HeadTitle.textContent}`;
+  }
   function showProjects() {
     // SAVE PROJECTS TO LOCAL STORAGE
     localStorage.setItem('projects', JSON.stringify(projects.projectsList));
@@ -211,6 +220,7 @@ const dom = (() => {
   }
 
   return {
+    showMainTitle,
     showProjects,
     getTasks,
   };
