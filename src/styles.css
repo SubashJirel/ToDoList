@@ -72,7 +72,8 @@ input[type='date'] {
   gap: 5px;
   width: 100%;
 }
-.project-submit-button {
+.project-submit-button,
+.task-submit-button {
   /* //input[type='submit'] */
   border: 1px solid #99dd99;
   background-color: forestgreen;
@@ -91,6 +92,9 @@ input[type='date'] {
 }
 .right-panel {
   background-color: var(--right-background-color);
+}
+.right-panel > h1 {
+  padding-left: 20px;
 }
 .title,
 .home-title {
@@ -148,6 +152,26 @@ button:hover {
   background-color: var(--left-panel-background-color);
   color: var(--font-color);
 }
+#list-form {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  align-items: flex-start;
+  margin: auto;
+  font-weight: bold;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: var(--left-panel-background-color);
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  transition-delay: 1s;
+  max-height: 300px;
+  max-width: 550px;
+  transition: max-height 0.8s ease-out, opacity 300ms ease-in-out;
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 54%);
+  transition: all 0.3s ease 0s;
+}
 
 footer {
   text-align: center;
@@ -159,11 +183,7 @@ footer {
 
 /* miscelaneous */
 .hidden {
-  display: none;
-}
-
-form {
-  border: 2px solid red;
+  display: none !important;
 }
 
 flex {

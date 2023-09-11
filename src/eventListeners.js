@@ -7,6 +7,7 @@ const projectCancelBtn = document.querySelector('.cancel-button');
 const projectCollectionDiv = document.querySelector('.project-collection');
 const homeDiv = document.querySelector('#home');
 const addTaskBtn = document.querySelector('#add-list');
+const addTaskForm = document.querySelector('#list-form');
 
 //left 3 static event listeners
 const allTasks = document.querySelector('#all-tasks');
@@ -19,7 +20,8 @@ export function createEventListener() {
   projectCancelBtn.addEventListener('click', cancelForm);
   projectCollectionDiv.addEventListener('click', showOrDeleteProject);
   homeDiv.addEventListener('click', changeTitle);
-
+  addTaskBtn.addEventListener('click', showForm);
+  addTaskForm.addEventListener('click', taskFormSubmissionOrCancellation);
   //left 3 static event listeners
   // allTasks.addEventListener('click',showAlltasks)
 }
@@ -60,5 +62,16 @@ function showOrDeleteProject(e) {
   } else {
     let clickedIndex = e.target.getAttribute('data-link-index');
     dom.showProjectTitle(clickedIndex);
+  }
+}
+function showForm() {
+  addTaskForm.classList.remove('hidden');
+}
+function taskFormSubmissionOrCancellation(event) {
+  const { target } = event; // object destruring
+  if (target.classList.contains('cancel-button')) {
+    addTaskForm.classList.add('hidden');
+  } else if (target.classList.contains('task-submit-button')) {
+    console.log('worked ');
   }
 }

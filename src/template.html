@@ -93,7 +93,12 @@
         <form id="list-form" class="hidden" autocomplete="off">
           <div class="inputField">
             <label>Title:</label>
-            <input type="text" id="listInput" placeholder="What to do?" />
+            <input
+              type="text"
+              id="listInput"
+              placeholder="What to do?"
+              required
+            />
             <label>Details(optional):</label>
             <textarea
               type="text"
@@ -102,10 +107,18 @@
               wrap="hard"
             ></textarea>
             <label>Date:</label>
-            <input type="date" id="listInputDate" />
-            <div class="formButtons">
-              <input type="submit" class="listSubmitBtn" value="Add" />
-              <input type="button" class="listCancelBtn" value="Cancel" />
+            <input type="date" id="listInputDate" required />
+            <div class="form-buttons">
+              <input
+                type="submit"
+                class="task-submit-button hover-element"
+                value="Add"
+              />
+              <input
+                type="button"
+                class="cancel-button hover-element"
+                value="Cancel"
+              />
             </div>
           </div>
         </form>

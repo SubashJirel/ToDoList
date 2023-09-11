@@ -5,6 +5,7 @@ const dom = (() => {
   const tasksList = document.querySelector('.tasks-list');
   const h1HeadTitle = document.querySelector('#main-head-title');
   const addTaskBtn = document.querySelector('#add-list');
+  const addTaskForm = document.querySelector('#list-form');
 
   function showMainTitle(index) {
     const allHomeTitle = document.querySelectorAll('.home-title');
@@ -13,6 +14,7 @@ const dom = (() => {
     h1HeadTitle.textContent = selectedHomeTitle;
     document.title = `ToDo - ${h1HeadTitle.textContent}`;
     addTaskBtn.classList.add('hidden');
+    addTaskForm.classList.add('hidden');
   }
   function showProjectTitle(index) {
     // console.log(projects);
