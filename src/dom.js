@@ -4,6 +4,7 @@ import { format, parseISO, differenceInDays } from 'date-fns';
 const dom = (() => {
   const tasksList = document.querySelector('.tasks-list');
   const h1HeadTitle = document.querySelector('#main-head-title');
+  const addTaskBtn = document.querySelector('#add-list');
 
   function showMainTitle(index) {
     const allHomeTitle = document.querySelectorAll('.home-title');
@@ -11,6 +12,15 @@ const dom = (() => {
       allHomeTitle[index].getAttribute('data-home-title');
     h1HeadTitle.textContent = selectedHomeTitle;
     document.title = `ToDo - ${h1HeadTitle.textContent}`;
+    addTaskBtn.classList.add('hidden');
+  }
+  function showProjectTitle(index) {
+    // console.log(projects);
+    // console.log('the selected index is', index);
+    // console.log(projects[index]);
+    h1HeadTitle.textContent = projects.projectsList[index].title;
+    document.title = `ToDo - ${h1HeadTitle.textContent}`;
+    addTaskBtn.classList.remove('hidden');
   }
   function showProjects() {
     // SAVE PROJECTS TO LOCAL STORAGE
@@ -222,6 +232,7 @@ const dom = (() => {
   return {
     showMainTitle,
     showProjects,
+    showProjectTitle,
     getTasks,
   };
 })();
