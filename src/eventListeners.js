@@ -1,5 +1,6 @@
 import dom from './dom';
 import projects from './projects';
+import tasks from './tasks';
 const form = document.querySelector('#project-form');
 const addProjectBtn = document.querySelector('#add-project');
 const projectSubmitBtn = document.querySelector('.project-submit-button');
@@ -8,6 +9,7 @@ const projectCollectionDiv = document.querySelector('.project-collection');
 const homeDiv = document.querySelector('#home');
 const addTaskBtn = document.querySelector('#add-list');
 const addTaskForm = document.querySelector('#list-form');
+const h1HeadTitle = document.querySelector('#main-head-title');
 
 //left 3 static event listeners
 const allTasks = document.querySelector('#all-tasks');
@@ -40,6 +42,7 @@ function showAddProjectForm() {
 function submitProject(e) {
   e.preventDefault();
   const projectTitle = document.querySelector('#projectInput').value;
+  if (projectTitle === '') return;
   projects.addProject(projectTitle);
   addProjectBtn.classList.remove('hidden');
   form.classList.add('hidden');
@@ -72,6 +75,41 @@ function taskFormSubmissionOrCancellation(event) {
   if (target.classList.contains('cancel-button')) {
     addTaskForm.classList.add('hidden');
   } else if (target.classList.contains('task-submit-button')) {
-    console.log('worked ');
+    const projecName = h1HeadTitle.textContent;
+
+    const projectIndex = projects.projectsList.findIndex((project) => {
+      return project.title === projecName;
+    });
+    const nextTaskIndex = projects.projectsList[projectIndex].tasks.length;
+    // console.log('worked and the project index is', projectIndex);
+    // console.log('worked and the task index is', nextTaskIndex);
+    const { taskTitle, taskDetail, taskDate } = formDataRetrieve();
+    console.log(taskTitle, taskDetail, taskDate);
+    if (taskTitle.length > 0) {
+      addTaskForm.classList.add('hidden');
+      formDataClear();
+    }
+
+    // tasks.addTask(taskTitle, taskDetail, taskDate, projectIndex, nextTaskIndex);
+    // addTaskForm.reset()
+    // dom.getTasks('project', projectIndex);
+  } else {
+    return;
   }
+}
+
+function formDataRetrieve() {
+  const taskTitle = document.querySelector('#listInput').value;
+  const taskDetail = document.querySelector('#listInputDetail').value;
+  const taskDate = document.querySelector('#listInputDate').value;
+  return {
+    taskTitle,
+    taskDetail,
+    taskDate,
+  };
+}
+function formDataClear() {
+  document.querySelector('#listInput').value = '';
+  document.querySelector('#listInputDetail').value = '';
+  document.querySelector('#listInputDate').value = '';
 }
