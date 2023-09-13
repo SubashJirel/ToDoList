@@ -32,6 +32,12 @@ function changeTitle(e) {
     let selectedIndex = parseInt(e.target.getAttribute('data-home-index'));
     dom.showMainTitle(selectedIndex);
     addTaskBtn.classList.add('hidden');
+
+    //now show the specific tasks in the right panel
+    // console.log(e.target.id);
+    const menuTitle = e.target.id;
+    const projectIndex = e.target.getAttribute('data-home-index');
+    dom.getTasks(menuTitle, projectIndex);
   }
 }
 
