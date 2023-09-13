@@ -221,7 +221,7 @@ const dom = (() => {
     // IF CLICKED ON PROJECT LINK
     if (menuTitle === 'project') {
       projectIndexStart = projectIndex;
-      projectIndexEnd = projectIndex + 1; // arko index bhanko arko project ho tei bhayer +1 gareko
+      projectIndexEnd = parseInt(projectIndex) + 1; // arko index bhanko arko project ho tei bhayer +1 gareko
 
       // IF CLICKED ON MENU LINK
     } else {

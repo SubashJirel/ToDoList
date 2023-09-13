@@ -42,14 +42,19 @@ function showAddProjectForm() {
 function submitProject(e) {
   e.preventDefault();
   const projectTitle = document.querySelector('#projectInput').value;
-  if (projectTitle === '') return;
+  if (projectTitle === '') {
+    alert('Please enter project title');
+    return;
+  }
   projects.addProject(projectTitle);
   addProjectBtn.classList.remove('hidden');
+  document.querySelector('#projectInput').value = '';
   form.classList.add('hidden');
 }
 
 function cancelForm() {
   form.classList.add('hidden');
+  document.querySelector('#projectInput').value = '';
   addProjectBtn.classList.remove('hidden');
 }
 
@@ -65,6 +70,7 @@ function showOrDeleteProject(e) {
   } else {
     let clickedIndex = e.target.getAttribute('data-link-index');
     dom.showProjectTitle(clickedIndex);
+    dom.getTasks('project', clickedIndex);
   }
 }
 function showForm() {
