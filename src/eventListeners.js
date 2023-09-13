@@ -85,12 +85,14 @@ function taskFormSubmissionOrCancellation(event) {
     // console.log('worked and the task index is', nextTaskIndex);
     const { taskTitle, taskDetail, taskDate } = formDataRetrieve();
     console.log(taskTitle, taskDetail, taskDate);
-    if (taskTitle.length > 0) {
+    if (taskTitle.length < 1) {
+      alert('Please Enter the title of the task.');
+    } else {
       addTaskForm.classList.add('hidden');
       formDataClear();
     }
 
-    // tasks.addTask(taskTitle, taskDetail, taskDate, projectIndex, nextTaskIndex);
+    tasks.addTask(taskTitle, taskDetail, taskDate, projectIndex, nextTaskIndex);
     // addTaskForm.reset()
     // dom.getTasks('project', projectIndex);
   } else {
