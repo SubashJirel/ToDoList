@@ -20,10 +20,11 @@ const tasks = (() => {
     dom.getTasks('project', projectIndex);
   }
 
-  function deleteTask(projectIndex, taskIndex) {
+  function deleteTask(menuTitle, projectIndex, taskIndex) {
     if (projectIndex > -1) {
       projects.projectsList[projectIndex].tasks.splice(taskIndex, 1);
-      dom.getTasks('all');
+      // dom.getTasks(menuTitle, projectIndex);
+      dom.getTasks(menuTitle, projectIndex);
     }
   }
 

@@ -180,7 +180,7 @@ const dom = (() => {
         // TASK INFO ICON
         taskInfoIcon.classList.add(
           'material-symbols-outlined',
-          'delete-task',
+          'toggle-complete',
           'block'
         );
         taskInfoIcon.innerText = 'circle';

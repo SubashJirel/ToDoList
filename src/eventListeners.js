@@ -10,6 +10,7 @@ const homeDiv = document.querySelector('#home');
 const addTaskBtn = document.querySelector('#add-list');
 const addTaskForm = document.querySelector('#list-form');
 const h1HeadTitle = document.querySelector('#main-head-title');
+const rightPanelDiv = document.querySelector('#right-panel');
 
 //left 3 static event listeners
 const allTasks = document.querySelector('#all-tasks');
@@ -24,6 +25,7 @@ export function createEventListener() {
   homeDiv.addEventListener('click', changeTitle);
   addTaskBtn.addEventListener('click', showForm);
   addTaskForm.addEventListener('click', taskFormSubmissionOrCancellation);
+  rightPanelDiv.addEventListener('click', tasksDeletionOrToggleCompleted);
   //left 3 static event listeners
   // allTasks.addEventListener('click',showAlltasks)
 }
@@ -126,4 +128,34 @@ function formDataClear() {
   document.querySelector('#listInput').value = '';
   document.querySelector('#listInputDetail').value = '';
   document.querySelector('#listInputDate').value = '';
+}
+function tasksDeletionOrToggleCompleted(event) {
+  const { target } = event;
+
+  if (target.classList.contains('delete-task')) {
+    const projectIndex = target.getAttribute('data-project-index');
+    const taskIndex = target.getAttribute('data-task-index');
+    let menuTitle = h1HeadTitle.textContent;
+    if (
+      menuTitle == 'All Tasks' ||
+      menuTitle == 'Today' ||
+      menuTitle == 'This Week'
+    ) {
+      if (menuTitle == 'All Tasks') {
+        menuTitle = 'all';
+      } else if (menuTitle == 'Today') {
+        menuTitle = 'today';
+      } else if (menuTitle == 'This Week') {
+        menuTitle = 'week';
+      } else {
+        console.log(
+          'project index is  wrong in the task deletion or toggle function'
+        );
+      }
+      tasks.deleteTask(menuTitle, projectIndex, taskIndex);
+    } else {
+      //else clicked on some created projects then
+      tasks.deleteTask('project', projectIndex, taskIndex);
+    }
+  }
 }
