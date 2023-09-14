@@ -114,7 +114,7 @@ const dom = (() => {
         const taskInfo = document.createElement('div');
         const taskDate = document.createElement('p');
         const taskTrashIcon = document.createElement('span');
-        const taskInfoIcon = document.createElement('span');
+        let taskInfoIcon = document.createElement('span');
 
         // #1 IF CLICKED ON MENU LINK 'TODAY'
         if (menuTitle === 'today') {
@@ -198,13 +198,14 @@ const dom = (() => {
 
         // TASK COMPLETION
         if (projects.projectsList[i].tasks[j].completed === false) {
+          taskInfoIcon.innerText = 'circle';
           taskText.classList.remove('task-done-text');
         } else {
+          taskInfoIcon.innerText = 'check_circle';
           taskText.classList.add('task-done-text');
         }
       }
     }
-    // manipulateModal('close');
   }
 
   function getTasks(menuTitle, projectIndex) {

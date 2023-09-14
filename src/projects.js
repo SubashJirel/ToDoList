@@ -16,6 +16,14 @@ const projects = (() => {
             taskIndex: 0,
             completed: false,
           },
+          {
+            title: 'This is a completed task',
+            description: 'some short description',
+            date: '2023-09-14',
+            projectIndex: 0,
+            taskIndex: 1,
+            completed: true,
+          },
         ],
       },
       {

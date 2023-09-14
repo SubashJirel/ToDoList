@@ -232,3 +232,6 @@ p {
 block {
   display: block;
 }
+.task-done-text {
+  text-decoration-line: line-through;
+}

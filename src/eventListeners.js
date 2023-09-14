@@ -89,8 +89,8 @@ function taskFormSubmissionOrCancellation(event) {
   if (target.classList.contains('cancel-button')) {
     addTaskForm.classList.add('hidden');
   } else if (target.classList.contains('task-submit-button')) {
+    event.preventDefault();
     const projecName = h1HeadTitle.textContent;
-
     const projectIndex = projects.projectsList.findIndex((project) => {
       return project.title === projecName;
     });
@@ -135,27 +135,23 @@ function tasksDeletionOrToggleCompleted(event) {
   if (target.classList.contains('delete-task')) {
     const projectIndex = target.getAttribute('data-project-index');
     const taskIndex = target.getAttribute('data-task-index');
-    let menuTitle = h1HeadTitle.textContent;
-    if (
-      menuTitle == 'All Tasks' ||
-      menuTitle == 'Today' ||
-      menuTitle == 'This Week'
-    ) {
-      if (menuTitle == 'All Tasks') {
-        menuTitle = 'all';
-      } else if (menuTitle == 'Today') {
-        menuTitle = 'today';
-      } else if (menuTitle == 'This Week') {
-        menuTitle = 'week';
-      } else {
-        console.log(
-          'project index is  wrong in the task deletion or toggle function'
-        );
-      }
-      tasks.deleteTask(menuTitle, projectIndex, taskIndex);
-    } else {
-      //else clicked on some created projects then
-      tasks.deleteTask('project', projectIndex, taskIndex);
-    }
+    const menuTitle = checkMenuTitle(h1HeadTitle.textContent);
+    tasks.deleteTask(menuTitle, projectIndex, taskIndex);
+  } else if (target.classList.contains('toggle-complete')) {
+    const projectIndex = target.getAttribute('data-project-index');
+    const taskIndex = target.getAttribute('data-task-index');
+    const menuTitle = checkMenuTitle(h1HeadTitle.textContent);
+    tasks.toggleTaskCompletion(menuTitle, projectIndex, taskIndex);
+  }
+}
+function checkMenuTitle(menuTitle) {
+  if (menuTitle == 'All Tasks') {
+    return 'all';
+  } else if (menuTitle == 'Today') {
+    return 'today';
+  } else if (menuTitle == 'This Week') {
+    return 'week';
+  } else {
+    return 'project';
   }
 }
