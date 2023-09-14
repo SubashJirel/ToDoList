@@ -5,10 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <!-- you can change the title in template.html from htmlPlugin in webpack.config.js. change title: 'To Do List', -->
-    <link rel="stylesheet" href="./style.css" />
-    <script defer src="main4b953cb70b32cd815599.js"></script>
-  </head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0"
+    />
+  <script defer src="mainc5883a73327c2be3096a.js"></script></head>
   <body>
-    <div class="content"></div>
+    <header>
+      <span class="material-symbols-outlined"> checklist_rtl </span>
+      <h1>Todo List</h1>
+    </header>
+    <div class="content">
+      <div id="left-panel">
+        <div id="home">
+          <h2>Home</h2>
+          <div
+            class="home-title"
+            id="all"
+            data-home-title="All Tasks"
+            data-home-index="0"
+          >
+            <span class="material-symbols-outlined"> task </span>
+            All tasks
+          </div>
+          <div
+            class="home-title"
+            id="today"
+            data-home-title="Today"
+            data-home-index="1"
+          >
+            <span class="material-symbols-outlined"> today </span>
+            Today
+          </div>
+          <div
+            class="home-title"
+            id="week"
+            data-home-title="This Week"
+            data-home-index="2"
+          >
+            <span class="material-symbols-outlined"> date_range </span>
+            This week
+          </div>
+        </div>
+        <div class="project-main">
+          <h2>Project</h2>
+          <form id="project-form" class="hidden" autocomplete="off">
+            <div class="input-field">
+              <input
+                type="text"
+                id="projectInput"
+                placeholder="Enter Project Name"
+                maxlength="24"
+                required
+              />
+              <div class="form-buttons">
+                <input
+                  type="submit"
+                  class="project-submit-button hover-element"
+                  value="Add"
+                />
+                <input
+                  type="button"
+                  class="cancel-button hover-element"
+                  value="Cancel"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="project-collection"></div>
+          <button id="add-project" class="title">
+            <span class="material-symbols-outlined"> add_circle </span>Add
+            Project
+          </button>
+        </div>
+      </div>
+      <div id="right-panel" class="right-panel">
+        <h1 class="title" id="main-head-title">All Tasks</h1>
+        <div class="tasks-list">
+          <!-- <ul></ul>
+       
+          <div class="option" id="list-option">
+            <button id="listDelete">Delete</button>
+          </div> -->
+
+          <!-- hidden pop up adding task form -->
+        </div>
+        <form id="list-form" class="hidden" autocomplete="off">
+          <div class="inputField">
+            <label for="listInput">Title:</label>
+            <input type="text" id="listInput" placeholder="What to do?" />
+            <label for="listInputDetail">Details(optional):</label>
+            <textarea
+              type="text"
+              id="listInputDetail"
+              placeholder="Details"
+              wrap="hard"
+            ></textarea>
+            <label for="listInputDate">Date:</label>
+            <input type="date" id="listInputDate" class="hover-element" />
+            <div class="form-buttons">
+              <input
+                type="submit"
+                class="task-submit-button hover-element"
+                value="Add"
+              />
+              <input
+                type="button"
+                class="cancel-button hover-element"
+                value="Cancel"
+              />
+            </div>
+          </div>
+        </form>
+        <button id="add-list" class="title">
+          <span class="material-symbols-outlined"> add_circle </span>Add Task
+        </button>
+      </div>
+    </div>
+    <footer>2023 © Subash Jirel</footer>
   </body>
 </html>
