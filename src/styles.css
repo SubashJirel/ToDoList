@@ -37,7 +37,7 @@ header > :first-child {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
-.left-panel {
+#left-panel {
   padding-left: 10px;
   background-color: var(--left-panel-background-color);
   color: var(--font-color);
@@ -48,7 +48,7 @@ header > :first-child {
 }
 #home > div:hover,
 .project-collection > :hover {
-  background-color: var(--header-footer-background-color);
+  background-color: #3a0111;
 }
 .delete-project:hover,
 .delete-task:hover {
@@ -249,4 +249,7 @@ block {
   .task-div {
     padding-right: 200px;
   }
+}
+.active {
+  background-color: #3a0111;
 }

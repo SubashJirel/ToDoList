@@ -11,6 +11,7 @@ const addTaskBtn = document.querySelector('#add-list');
 const addTaskForm = document.querySelector('#list-form');
 const h1HeadTitle = document.querySelector('#main-head-title');
 const rightPanelDiv = document.querySelector('#right-panel');
+const leftPanelDiv = document.querySelector('#left-panel');
 
 //left 3 static event listeners
 const allTasks = document.querySelector('#all-tasks');
@@ -26,8 +27,9 @@ export function createEventListener() {
   addTaskBtn.addEventListener('click', showForm);
   addTaskForm.addEventListener('click', taskFormSubmissionOrCancellation);
   rightPanelDiv.addEventListener('click', tasksDeletionOrToggleCompleted);
-  //left 3 static event listeners
-  // allTasks.addEventListener('click',showAlltasks)
+  document.addEventListener('DOMContentLoaded', function () {
+    leftPanelDiv.addEventListener('click', changeBackgroundColorLeftDivs);
+  });
 }
 function changeTitle(e) {
   if (e.target.classList.contains('home-title')) {
@@ -153,5 +155,27 @@ function checkMenuTitle(menuTitle) {
     return 'week';
   } else {
     return 'project';
+  }
+}
+
+function changeBackgroundColorLeftDivs(event) {
+  const homeDivs = document.querySelectorAll('.home-title');
+  const projectDivs = document.querySelectorAll('.project-link');
+  const arrayOfLeftDivs = [...homeDivs, ...projectDivs];
+  function changeNotSelectedDivColor() {
+    arrayOfLeftDivs.forEach((div) => {
+      if (div.classList.contains('active')) {
+        div.classList.remove('active');
+      }
+    });
+  }
+  if (event.target.closest('.home-title')) {
+    changeNotSelectedDivColor();
+    event.target.closest('.home-title').classList.add('active');
+  } else if (event.target.closest('.project-link')) {
+    changeNotSelectedDivColor();
+    event.target.closest('.project-link').classList.add('active');
+  } else {
+    event.stopPropagation();
   }
 }
